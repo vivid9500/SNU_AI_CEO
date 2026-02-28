@@ -669,16 +669,7 @@
 }
 
 .roadmap__year::before {
-    content: '';
-    position: absolute;
-    left: -69px;
-    top: 20px;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--accent-blue);
-    border: 3px solid var(--bg-primary);
-    z-index: 1;
+    display: none;
 }
 
 .roadmap__year-badge {
