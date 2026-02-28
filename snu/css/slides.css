@@ -99,11 +99,12 @@
 }
 
 .stat-card__label {
-    font-size: var(--fs-small);
-    color: var(--text-secondary);
+    font-size: var(--fs-body);
+    color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: var(--gap-sm);
+    font-weight: 600;
 }
 
 .stat-card__value {
@@ -117,9 +118,10 @@
 }
 
 .stat-card__desc {
-    font-size: var(--fs-small);
-    color: var(--text-muted);
-    margin-top: var(--gap-sm);
+    font-size: var(--fs-h3);
+    color: #ffffff;
+    margin-top: var(--gap-md);
+    font-weight: 500;
 }
 
 .stat-card__icon {
