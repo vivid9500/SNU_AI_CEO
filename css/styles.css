@@ -1,0 +1,292 @@
+/* === CSS Custom Properties (Design Tokens) === */
+:root {
+    /* Color Palette - Dark Theme */
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #12121a;
+    --bg-card: #1a1a2e;
+    --bg-card-hover: #22223a;
+
+    --text-primary: #e8e8f0;
+    --text-secondary: #a0a0b8;
+    --text-muted: #6b6b80;
+
+    --accent-blue: #4a9eff;
+    --accent-cyan: #00d4ff;
+    --accent-purple: #8b5cf6;
+    --accent-green: #10b981;
+    --accent-orange: #f59e0b;
+    --accent-red: #ef4444;
+
+    --gradient-primary: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    --gradient-secondary: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+
+    /* Typography */
+    --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+    --fs-hero: clamp(2.5rem, 5vw, 4.5rem);
+    --fs-h1: clamp(2rem, 4vw, 3.5rem);
+    --fs-h2: clamp(1.5rem, 3vw, 2.5rem);
+    --fs-h3: clamp(1.2rem, 2vw, 1.75rem);
+    --fs-body: clamp(1rem, 1.5vw, 1.25rem);
+    --fs-small: clamp(0.85rem, 1.2vw, 1rem);
+
+    /* Spacing */
+    --slide-padding: clamp(2rem, 5vw, 6rem);
+    --gap-sm: 0.5rem;
+    --gap-md: 1rem;
+    --gap-lg: 2rem;
+    --gap-xl: 3rem;
+
+    /* Transitions */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --duration-normal: 0.6s;
+    --duration-slow: 1s;
+
+    /* Borders */
+    --border-radius: 12px;
+    --border-radius-sm: 8px;
+    --border-color: rgba(255, 255, 255, 0.08);
+
+    /* Shadows */
+    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+    --shadow-glow-blue: 0 0 30px rgba(74, 158, 255, 0.15);
+    --shadow-glow-purple: 0 0 30px rgba(139, 92, 246, 0.15);
+}
+
+/* === Reset & Base === */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-sans);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* === Full-Screen Slide Layout === */
+.slide {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--slide-padding);
+    position: relative;
+    overflow: hidden;
+}
+
+.slide__content {
+    max-width: 1200px;
+    width: 100%;
+    z-index: 1;
+}
+
+.slide__heading {
+    font-size: var(--fs-h1);
+    font-weight: 700;
+    margin-bottom: var(--gap-sm);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.slide__subheading {
+    font-size: var(--fs-body);
+    color: var(--text-secondary);
+    margin-bottom: var(--gap-xl);
+}
+
+/* === Background Effects === */
+.slide__bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 0;
+}
+
+/* === Progress Bar === */
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--bg-secondary);
+    z-index: 1000;
+}
+
+#progress-fill {
+    height: 100%;
+    background: var(--gradient-primary);
+    width: 0%;
+    transition: width 0.3s var(--ease-out-expo);
+}
+
+/* === Navigation Controls === */
+#slide-controls {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    gap: var(--gap-sm);
+    z-index: 999;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+#slide-controls:hover {
+    opacity: 1;
+}
+
+#slide-controls button {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    width: 40px;
+    height: 40px;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+#slide-controls button:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--accent-blue);
+}
+
+#slide-counter {
+    font-size: var(--fs-small);
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+    min-width: 60px;
+    text-align: center;
+}
+
+/* === Presenter Notes === */
+#presenter-notes {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 220px;
+    background: rgba(10, 10, 15, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid var(--border-color);
+    z-index: 1001;
+    transform: translateY(100%);
+    transition: transform 0.3s var(--ease-out-expo);
+    display: flex;
+    flex-direction: column;
+}
+
+#presenter-notes.visible {
+    transform: translateY(0);
+}
+
+#notes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--gap-md) var(--gap-lg);
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 600;
+    color: var(--accent-blue);
+    flex-shrink: 0;
+}
+
+#notes-header button {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0 0.5rem;
+}
+
+#notes-content {
+    padding: var(--gap-md) var(--gap-lg);
+    overflow-y: auto;
+    flex: 1;
+    font-size: var(--fs-body);
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* === Card Component (Reusable) === */
+.stat-card,
+.tech__card,
+.effect-card,
+.team__card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: var(--gap-lg);
+    box-shadow: var(--shadow-card);
+    transition: transform 0.3s var(--ease-out-expo),
+                box-shadow 0.3s var(--ease-out-expo);
+}
+
+.stat-card:hover,
+.tech__card:hover,
+.effect-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card), var(--shadow-glow-blue);
+}
+
+/* === Typography Helpers === */
+strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+em {
+    color: var(--accent-cyan);
+    font-style: normal;
+    font-weight: 600;
+}
+
+small {
+    font-size: var(--fs-small);
+    color: var(--text-muted);
+}
+
+/* === Scrollbar === */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--text-muted);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}

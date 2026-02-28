@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>End-to-End AI B2B SCM 시스템 | 서울대 AI 빅데이터 CEO 과정</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/slides.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div id="progress-bar">
+        <div id="progress-fill"></div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <nav id="slide-controls">
+        <button id="btn-prev" aria-label="이전 슬라이드">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <span id="slide-counter">1 / 10</span>
+        <button id="btn-next" aria-label="다음 슬라이드">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+        <button id="btn-notes" aria-label="발표자 노트 토글">N</button>
+        <button id="btn-print" aria-label="인쇄/PDF 내보내기">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+        </button>
+    </nav>
+
+    <!-- Presenter Notes Panel -->
+    <aside id="presenter-notes">
+        <div id="notes-header">
+            <span>발표자 노트</span>
+            <button id="notes-close" aria-label="노트 닫기">&times;</button>
+        </div>
+        <div id="notes-content"></div>
+    </aside>
+
+    <!-- Slides Container -->
+    <main id="slides-container">
+
+        <!-- Slide 1: Title -->
+        <section class="slide slide--title" id="slide-1" data-slide="1">
+            <div class="slide__bg-grid"></div>
+            <div class="slide__content">
+                <div class="title__badge anim-fade-up">서울대학교 AI 빅데이터 CEO 과정</div>
+                <h1 class="title__main anim-fade-up anim-delay-1">
+                    End-to-End AI<br>B2B SCM 시스템
+                </h1>
+                <p class="title__sub anim-fade-up anim-delay-2">최종 발표 과제 Proposal</p>
+                <div class="title__divider anim-grow anim-delay-3"></div>
+                <div class="title__company anim-fade-up anim-delay-3">남도마켓</div>
+                <blockquote class="title__tagline anim-fade-up anim-delay-4">
+                    "경쟁사가 진열대만 꾸밀 때,<br>남도마켓은 공장과 창고에서부터 AI를 연결"
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Slide 2: Current Status -->
+        <section class="slide slide--status" id="slide-2" data-slide="2">
+            <div class="slide__content">
+                <h2 class="slide__heading anim-fade-up">현재 현황</h2>
+                <p class="slide__subheading anim-fade-up anim-delay-1">상품 등록이 매출을 견인하고 있습니다</p>
+                <div class="status__grid">
+                    <div class="status__chart-area anim-fade-left anim-delay-2">
+                        <canvas id="chart-correlation"></canvas>
+                    </div>
+                    <div class="status__stats anim-fade-right anim-delay-2">
+                        <div class="stat-card stat-card--highlight">
+                            <div class="stat-card__label">상관계수</div>
+                            <div class="stat-card__value counter" data-target="0.81">0.00</div>
+                            <div class="stat-card__desc">상품등록수 &harr; 거래확정금액</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card__icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                            </div>
+                            <div class="stat-card__text">상품등록수 증가가<br><strong>거래확정금액 상승</strong>을 견인</div>
+                        </div>
+                        <div class="stat-card stat-card--alert">
+                            <div class="stat-card__icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                            </div>
+                            <div class="stat-card__text">소매 VoC:<br><strong>남도마켓 내 상품 수 부족</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Problem Definition -->
+        <section class="slide slide--problem" id="slide-3" data-slide="3">
+            <div class="slide__content">
+                <h2 class="slide__heading anim-fade-up">핵심 문제 정의</h2>
+                <p class="slide__subheading anim-fade-up anim-delay-1">상품 등록 이전 단계부터 문제가 시작됩니다</p>
+                <div class="pipeline">
+                    <div class="pipeline__stage anim-fade-up anim-delay-1">
+                        <div class="pipeline__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-purple)" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 7V5a4 4 0 0 0-8 0v2"></path><circle cx="12" cy="14" r="2"></circle></svg>
+                        </div>
+                        <div class="pipeline__label">기획/생산</div>
+                        <div class="pipeline__pain">어떤 상품을, 얼마나<br>만들어야 할지 어려움</div>
+                    </div>
+                    <div class="pipeline__arrow anim-grow anim-delay-2">
+                        <svg width="40" height="24" viewBox="0 0 40 24"><path d="M0 12h32M28 6l8 6-8 6" fill="none" stroke="var(--text-muted)" stroke-width="2"/></svg>
+                    </div>
+                    <div class="pipeline__stage anim-fade-up anim-delay-2">
+                        <div class="pipeline__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                        </div>
+                        <div class="pipeline__label">재고관리</div>
+                        <div class="pipeline__pain">POS HW/SW 공급률 60%<br>매우 오래된 SW 사용 중</div>
+                    </div>
+                    <div class="pipeline__arrow anim-grow anim-delay-3">
+                        <svg width="40" height="24" viewBox="0 0 40 24"><path d="M0 12h32M28 6l8 6-8 6" fill="none" stroke="var(--text-muted)" stroke-width="2"/></svg>
+                    </div>
+                    <div class="pipeline__stage anim-fade-up anim-delay-3">
+                        <div class="pipeline__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                        </div>
+                        <div class="pipeline__label">상품 등록</div>
+                        <div class="pipeline__pain">연령대 높은 도매상<br>등록 내용 채우기 어려움</div>
+                    </div>
+                    <div class="pipeline__arrow anim-grow anim-delay-4">
+                        <svg width="40" height="24" viewBox="0 0 40 24"><path d="M0 12h32M28 6l8 6-8 6" fill="none" stroke="var(--text-muted)" stroke-width="2"/></svg>
+                    </div>
+                    <div class="pipeline__stage pipeline__stage--competitor anim-fade-up anim-delay-4">
+                        <div class="pipeline__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        </div>
+                        <div class="pipeline__label">상품 노출/홍보</div>
+                        <div class="pipeline__pain pipeline__pain--note">경쟁사 집중 영역<br>(검색/추천 적용 완료)</div>
+                    </div>
+                </div>
+                <div class="pipeline__conclusion anim-fade-up anim-delay-4">
+                    <div class="conclusion__bracket">{</div>
+                    <div class="conclusion__text">
+                        <strong>결론:</strong> 기획/생산 &rarr; 재고관리 &rarr; 상품등록까지를 <em>일체화</em>시키는 프로젝트 필요
+                    </div>
+                    <div class="conclusion__bracket">}</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Market Analysis -->
+        <section class="slide slide--market" id="slide-4" data-slide="4">
+            <div class="slide__content">
+                <h2 class="slide__heading anim-fade-up">시장 분석</h2>
+                <p class="slide__subheading anim-fade-up anim-delay-1">경쟁사가 진열대만 꾸밀 때, 우리는 공장에서부터</p>
+                <div class="market__comparison">
+                    <div class="market__competitor anim-fade-left anim-delay-2">
+                        <h3 class="market__title">신상마켓 <span class="market__tag">경쟁사</span></h3>
+                        <div class="market__pipeline">
+                            <div class="market__stage market__stage--inactive">
+                                <span class="market__stage-label">기획/생산</span>
+                            </div>
+                            <div class="market__stage market__stage--inactive">
+                                <span class="market__stage-label">재고관리</span>
+                            </div>
+                            <div class="market__stage market__stage--inactive">
+                                <span class="market__stage-label">상품 등록</span>
+                            </div>
+                            <div class="market__stage market__stage--active">
+                                <span class="market__stage-label">상품 노출/홍보</span>
+                                <span class="market__ai-badge">AI 적용 중</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="market__vs anim-pulse anim-delay-2">VS</div>
+                    <div class="market__ours anim-fade-right anim-delay-2">
+                        <h3 class="market__title">남도마켓 <span class="market__tag market__tag--primary">우리</span></h3>
+                        <div class="market__pipeline">
+                            <div class="market__stage market__stage--target">
+                                <span class="market__stage-label">기획/생산</span>
+                                <span class="market__ai-badge market__ai-badge--new">AI 도입</span>
+                            </div>
+                            <div class="market__stage market__stage--target">
+                                <span class="market__stage-label">재고관리</span>
+                                <span class="market__ai-badge market__ai-badge--new">AI 도입</span>
+                            </div>
+                            <div class="market__stage market__stage--target">
+                                <span class="market__stage-label">상품 등록</span>
+                                <span class="market__ai-badge market__ai-badge--new">AI 도입</span>
+                            </div>
+                            <div class="market__stage market__stage--done">
+                                <span class="market__stage-label">상품 노출/홍보</span>
+                                <span class="market__ai-badge market__ai-badge--done">적용 완료</span>
+                            </div>
+                        </div>
+                        <div class="market__tech-stack anim-fade-up anim-delay-3">
+                            <span class="tech-badge">AI 임베딩</span>
+                            <span class="tech-badge">BM25</span>
+                            <span class="tech-badge">RAG</span>
+                            <span class="tech-badge">Thesaurus</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: AI Technology -->
+        <section class="slide slide--tech" id="slide-5" data-slide="5">
+            <div class="slide__content">
+                <h2 class="slide__heading anim-fade-up">AI 기술 도입</h2>
+                <p class="slide__subheading anim-fade-up anim-delay-1">상용 AI API + GraphRAG로 파이프라인 지능화</p>
+                <div class="tech__grid">
+                    <div class="tech__card anim-fade-up anim-delay-1">
+                        <div class="tech__card-icon tech__card-icon--vision">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </div>
+                        <h3>Vision AI</h3>
+                        <p class="tech__desc">상품 이미지 인식 &rarr; 상품 정보 인덱싱</p>
+                        <div class="tech__flow">
+                            <span class="tech__flow-step">상품 이미지</span>
+                            <span class="tech__flow-arrow">&rarr;</span>
+                            <span class="tech__flow-step">Vision API</span>
+                            <span class="tech__flow-arrow">&rarr;</span>
+                            <span class="tech__flow-step">인덱싱 데이터</span>
+                        </div>
+                    </div>
+                    <div class="tech__card anim-fade-up anim-delay-2">
+                        <div class="tech__card-icon tech__card-icon--llm">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent-purple)" stroke-width="1.5"><path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12"></path><path d="M12 2c3 3 4.5 6 4.5 10s-1.5 7-4.5 10"></path><path d="M12 2c-3 3-4.5 6-4.5 10s1.5 7 4.5 10"></path><line x1="2" y1="12" x2="22" y2="12"></line></svg>
+                        </div>
+                        <h3>Gen AI (LLM)</h3>
+                        <p class="tech__desc">인덱싱 정보 기반 상품명 및 상품 설명 자동 생성</p>
+                        <div class="tech__flow">
+                            <span class="tech__flow-step">인덱싱 데이터</span>
+                            <span class="tech__flow-arrow">&rarr;</span>
+                            <span class="tech__flow-step">LLM</span>
+                            <span class="tech__flow-arrow">&rarr;</span>
+                            <span class="tech__flow-step">상품명 + 설명</span>
+                        </div>
+                    </div>
+                    <div class="tech__card tech__card--wide anim-fade-up anim-delay-3">
+                        <div class="tech__card-header">
+                            <div class="tech__card-icon tech__card-icon--graph">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="1.5"><circle cx="6" cy="6" r="3"></circle><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="18" r="3"></circle><line x1="8.5" y1="7.5" x2="15.5" y2="16.5"></line><line x1="15.5" y1="7.5" x2="8.5" y2="16.5"></line></svg>
+                            </div>
+                            <div>
+                                <h3>GraphRAG</h3>
+                                <p class="tech__desc">도소매 지식 그래프 기반 생산 기획 가이드</p>
+                            </div>
+                        </div>
+                        <div class="tech__graph" id="graphrag-viz"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Implementation Structure -->
+        <section class="slide slide--impl" id="slide-6" data-slide="6">
+            <div class="slide__content">
+                <h2 class="slide__heading anim-fade-up">적용 구조 및 실행 방안</h2>
+                <p class="slide__subheading anim-fade-up anim-delay-1">두 트랙 전략: 기존 도매 + 신규 도매</p>
+                <div class="impl__grid">
+                    <div class="impl__track anim-fade-left anim-delay-2">
+                        <div class="impl__track-header impl__track-header--pos">
+                            <h3>AI 자동화 POS</h3>
+                            <span class="impl__track-tag">기존 도매용</span>
+                        </div>
+                        <div class="impl__steps">
+                            <div class="impl__step">
+                                <div class="impl__step-num">1</div>
+                                <div class="impl__step-text">바이브코딩으로 POS 시스템 구축<br><small>재고 입력, 바코드/영수증 출력, 스캔 기능</small></div>
+                            </div>
+                            <div class="impl__step-arrow">&darr;</div>
+                            <div class="impl__step">
+                                <div class="impl__step-num">2</div>
+                                <div class="impl__step-text">재고 등록 시 자동으로<br><strong>상품 등록 AI 작동</strong></div>
+                            </div>
+                            <div class="impl__step-arrow">&darr;</div>
+                            <div class="impl__step">
+                                <div class="impl__step-num">3</div>
+                                <div class="impl__step-text">남도마켓에 자동 등록/노출</div>
+                            </div>
+                            <div class="impl__step-arrow">&darr;</div>
+                            <div class="impl__step impl__step--bonus">
+                                <div class="impl__step-num">+</div>
+                                <div class="impl__step-text">GraphRAG 기반<br>기획 상품 및 생산량 추천</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="impl__divider anim-grow anim-delay-2"></div>
+                    <div class="impl__track anim-fade-right anim-delay-2">
+                        <div class="impl__track-header impl__track-header--shadow">
+                            <h3>AI 상품 등록</h3>
+                            <span class="impl__track-tag">신규 도매용</span>
+                        </div>
+                        <div class="impl__steps">
+                            <div class="impl__step">
+                                <div class="impl__step-num">1</div>
+                                <div class="impl__step-text"><strong>가입 없이</strong> AI로 상품 정보 채움</div>
+                            </div>
+                            <div class="impl__step-arrow">&darr;</div>
+                            <div class="impl__step">
+                                <div class="impl__step-num">2</div>
+                                <div class="impl__step-text">남도마켓에 바로 노출</div>
+                            </div>
+                            <div class="impl__step-arrow">&darr;</div>
+                            <div class="impl__step">
+                                <div class="impl__step-num">3</div>
+                                <div class="impl__step-text"><strong>첫 판매 발생</strong> 시 가입 유도</div>
+                            </div>
+                            <div class="impl__step-arrow">&darr;</div>
+                            <div class="impl__step impl__step--lockin">
+                                <div class="impl__step-num">&check;</div>
+                                <div class="impl__step-text">플랫폼 락인 완성</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="impl__highlight anim-fade-up anim-delay-4">
+                    <span class="impl__highlight-icon">&#9733;</span>
+                    가입 장벽을 없애고 <strong>'첫 판매 경험'</strong>을 미끼로 플랫폼에 락인
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Economic Effects -->
+        <section class="slide slide--effects" id="slide-7" data-slide="7">
+            <div class="slide__content">
+                <h2 class="slide__heading anim-fade-up">경제적 기대 효과</h2>
+                <div class="effects__grid">
+                    <div class="effect-card anim-fade-up anim-delay-1">
+                        <div class="effect-card__icon-area effect-card__icon-area--supplier">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        </div>
+                        <h3>공급자(도매) 측면</h3>
+                        <ul class="effect-card__list">
+                            <li>상품 등록 리소스 절감</li>
+                            <li>데이터 기반 생산 기획으로 <strong>악성 재고 감소</strong></li>
+                        </ul>
+                        <div class="effect-card__quotes">
+                            <p class="effect-card__quote">"못 하던 재고관리를 쉽게 할 수 있네?"</p>
+                            <p class="effect-card__quote">"재고관리만 했을 뿐인데, 남도마켓에 알아서 올라가네?"</p>
+                        </div>
+                    </div>
+                    <div class="effect-card anim-fade-up anim-delay-2">
+                        <div class="effect-card__icon-area effect-card__icon-area--platform">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-purple)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                        </div>
+                        <h3>플랫폼 측면</h3>
+                        <ul class="effect-card__list">
+                            <li>신규 도매상 획득 비용(CAC) <strong>획기적 감소</strong></li>
+                            <li>등록 상품 수 폭발적 증가 &rarr; <strong>거래액(GMV) 동반 상승</strong></li>
+                        </ul>
+                    </div>
+                    <div class="effect-card effect-card--highlight anim-fade-up anim-delay-3">
+                        <div class="effect-card__icon-area effect-card__icon-area--data">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                        </div>
+                        <h3>데이터 자산화</h3>
+                        <p class="effect-card__text">도매 시장의 <strong>'기획/생산 데이터'</strong>라는<br>대체 불가능한 독점적 데이터 확보</p>
+                        <div class="effect-card__cycle">
+                            <span>AI 제안</span>
+                            <span class="effect-card__cycle-arrow">&rarr;</span>
+                            <span>도매 생산</span>
+                            <span class="effect-card__cycle-arrow">&rarr;</span>
+                            <span>판매 결과</span>
+                            <span class="effect-card__cycle-arrow">&rarr;</span>
+                            <span>데이터 축적</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: 3-Year Roadmap -->
+        <section class="slide slide--roadmap" id="slide-8" data-slide="8">
+            <div class="slide__content">
+                <h2 class="slide__heading anim-fade-up">3개년 실행 계획</h2>
+                <div class="roadmap__timeline">
+                    <div class="roadmap__line anim-grow-y"></div>
+                    <div class="roadmap__year anim-fade-right anim-delay-1">
+                        <div class="roadmap__year-badge roadmap__year-badge--y1">1차년도</div>
+                        <div class="roadmap__year-content">
+                            <h3>Speed &amp; Lock-in</h3>
+                            <p class="roadmap__subtitle">초고속 MVP 배포 및 데이터 파이프라인 안착</p>
+                            <div class="roadmap__halves">
+                                <div class="roadmap__half">
+                                    <strong>상반기</strong>
+                                    <p>AI 비전 기반 POS MVP 개발 완료<br>Shadow Registration 기능 동시 오픈</p>
+                                </div>
+                                <div class="roadmap__half">
+                                    <strong>하반기</strong>
+                                    <p>자사 신규 의류 브랜드로 첫 PoC 검증<br>시스템 오류 수정 및 UI/UX 고도화</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="roadmap__year anim-fade-right anim-delay-2">
+                        <div class="roadmap__year-badge roadmap__year-badge--y2">2차년도</div>
+                        <div class="roadmap__year-content">
+                            <h3>Intelligence &amp; Optimization</h3>
+                            <p class="roadmap__subtitle">AI 지능화 및 수요 예측 모델 상용화</p>
+                            <div class="roadmap__halves">
+                                <div class="roadmap__half">
+                                    <strong>상반기</strong>
+                                    <p>GraphRAG 기반 도소매 지식 그래프 구축<br>연관 관계 기반 추천 로직 테스트</p>
+                                </div>
+                                <div class="roadmap__half">
+                                    <strong>하반기</strong>
+                                    <p>도매상 맞춤형 생산 기획 추천 대시보드 런칭<br>악성 재고 감소 제안 고도화</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="roadmap__year anim-fade-right anim-delay-3">
+                        <div class="roadmap__year-badge roadmap__year-badge--y3">3차년도</div>
+                        <div class="roadmap__year-content">
+                            <h3>Ecosystem &amp; Scale</h3>
+                            <p class="roadmap__subtitle">End-to-End B2B SCM 표준화 및 글로벌 소싱 연계</p>
+                            <div class="roadmap__halves">
+                                <div class="roadmap__half">
+                                    <strong>상반기</strong>
+                                    <p>기획-생산-재고-판매-정산 All-in-one Dashboard<br>도매상의 필수 비즈니스 OS로 자리매김</p>
+                                </div>
+                                <div class="roadmap__half">
+                                    <strong>하반기</strong>
+                                    <p>광저우 등 해외 소싱 거점 연결<br>Cross-border SCM 망 확장</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 9: Team Structure -->
+        <section class="slide slide--team" id="slide-9" data-slide="9">
+            <div class="slide__content">
+                <h2 class="slide__heading anim-fade-up">AI 운용팀 구성</h2>
+                <p class="slide__subheading anim-fade-up anim-delay-1">현장 중심 + 바이브코딩 기반 초고속 개발</p>
+                <div class="team__org">
+                    <div class="team__cpo anim-fade-up anim-delay-1">
+                        <div class="team__card team__card--cpo">
+                            <h3>CPO</h3>
+                            <p>현장 문제 파악 &amp; AI 활용 지점 조율</p>
+                            <small>LLM/RAG/프롬프트 엔지니어링/바이브코딩<br>AI 기반 지식으로 개발팀 조율</small>
+                        </div>
+                    </div>
+                    <div class="team__connector anim-grow-y anim-delay-2"></div>
+                    <div class="team__teams anim-fade-up anim-delay-3">
+                        <div class="team__card team__card--field">
+                            <h3>물류팀</h3>
+                            <p>현장 현황 파악</p>
+                            <div class="team__card-tag">현장 집중</div>
+                        </div>
+                        <div class="team__card team__card--field">
+                            <h3>세일즈팀</h3>
+                            <p>요구사항 파악</p>
+                            <div class="team__card-tag">현장 집중</div>
+                        </div>
+                        <div class="team__card team__card--field">
+                            <h3>마케팅팀</h3>
+                            <p>시장 분석</p>
+                            <div class="team__card-tag">현장 집중</div>
+                        </div>
+                        <div class="team__card team__card--dev">
+                            <h3>개발팀</h3>
+                            <p>바이브코딩 도입</p>
+                            <div class="team__card-tag team__card-tag--dev">5일 상한제</div>
+                            <small>버전별 개발 5일 상한제<br>현장 요구 신속/정확 반영</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 10: Closing -->
+        <section class="slide slide--closing" id="slide-10" data-slide="10">
+            <div class="slide__bg-grid"></div>
+            <div class="slide__content">
+                <h1 class="closing__thanks anim-fade-up">감사합니다</h1>
+                <div class="closing__divider anim-grow anim-delay-1"></div>
+                <p class="closing__tagline anim-fade-up anim-delay-2">End-to-End AI B2B SCM 시스템</p>
+                <p class="closing__company anim-fade-up anim-delay-3">남도마켓</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/navigation.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/diagrams.js"></script>
+    <script src="js/notes.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

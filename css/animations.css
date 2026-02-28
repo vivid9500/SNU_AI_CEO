@@ -1,0 +1,95 @@
+/* === Keyframe Definitions === */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeLeft {
+    from { opacity: 0; transform: translateX(-40px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeRight {
+    from { opacity: 0; transform: translateX(40px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes grow {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+}
+
+@keyframes growY {
+    from { transform: scaleY(0); }
+    to   { transform: scaleY(1); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50%      { transform: scale(1.15); opacity: 0.8; }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+@keyframes drawLine {
+    from { stroke-dashoffset: var(--line-length, 300); }
+    to   { stroke-dashoffset: 0; }
+}
+
+@keyframes nodeAppear {
+    from { transform: scale(0); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
+}
+
+/* === Animation Utility Classes === */
+/* Elements start invisible */
+.anim-fade-up,
+.anim-fade-left,
+.anim-fade-right,
+.anim-grow,
+.anim-grow-y,
+.anim-pulse {
+    opacity: 0;
+}
+
+/* Trigger animations when visible */
+.anim-fade-up.is-visible {
+    animation: fadeUp var(--duration-normal) var(--ease-out-expo) forwards;
+}
+
+.anim-fade-left.is-visible {
+    animation: fadeLeft var(--duration-normal) var(--ease-out-expo) forwards;
+}
+
+.anim-fade-right.is-visible {
+    animation: fadeRight var(--duration-normal) var(--ease-out-expo) forwards;
+}
+
+.anim-grow.is-visible {
+    animation: grow var(--duration-normal) var(--ease-out-expo) forwards;
+}
+
+.anim-grow-y.is-visible {
+    animation: growY var(--duration-slow) var(--ease-out-expo) forwards;
+    transform-origin: top;
+}
+
+.anim-pulse.is-visible {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* === Staggered Delay Classes === */
+.anim-delay-0 { animation-delay: 0s !important; }
+.anim-delay-1 { animation-delay: 0.15s !important; }
+.anim-delay-2 { animation-delay: 0.3s !important; }
+.anim-delay-3 { animation-delay: 0.45s !important; }
+.anim-delay-4 { animation-delay: 0.6s !important; }
+.anim-delay-5 { animation-delay: 0.75s !important; }
