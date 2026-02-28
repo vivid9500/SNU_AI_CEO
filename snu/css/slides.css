@@ -66,23 +66,26 @@
 /* === Slide 2: Current Status === */
 .status__grid {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1fr 1fr;
     gap: var(--gap-xl);
-    align-items: start;
-}
-
-.status__chart-area {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    padding: var(--gap-lg);
-    height: 400px;
+    align-items: stretch;
 }
 
 .status__stats {
     display: flex;
     flex-direction: column;
     gap: var(--gap-md);
+}
+
+.stat-card--large {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-card--large .stat-card__value {
+    font-size: clamp(4rem, 10vw, 8rem);
 }
 
 .stat-card {
