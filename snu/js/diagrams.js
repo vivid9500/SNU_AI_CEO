@@ -140,7 +140,7 @@ const Diagrams = (() => {
             { label: '니트', sub: '검색어', cx: 300, cy: 230, r: 30, fill: 'rgba(245, 158, 11, 0.3)', stroke: '#f59e0b' },
             { label: '상품 X', sub: '도매 C', cx: 520, cy: 80, r: 35, fill: 'rgba(16, 185, 129, 0.3)', stroke: '#10b981' },
             { label: '상품 Y', sub: '도매 D', cx: 520, cy: 200, r: 35, fill: 'rgba(16, 185, 129, 0.3)', stroke: '#10b981' },
-            { label: '구매', sub: '', cx: 700, cy: 140, r: 35, fill: 'rgba(239, 68, 68, 0.3)', stroke: '#ef4444' },
+            { label: '기획/생산', sub: '', cx: 700, cy: 140, r: 40, fill: 'rgba(239, 68, 68, 0.3)', stroke: '#ef4444' },
         ];
 
         // Define edges
@@ -174,7 +174,7 @@ const Diagrams = (() => {
             { color: '#4a9eff', label: '소매상 (Node)' },
             { color: '#f59e0b', label: '검색어 (Node)' },
             { color: '#10b981', label: '상품 (Node)' },
-            { color: '#ef4444', label: '구매 (Edge)' },
+            { color: '#ef4444', label: '기획/생산 (Output)' },
         ];
 
         legendItems.forEach((item, i) => {
