@@ -610,6 +610,79 @@
     color: var(--accent-orange);
 }
 
+.impl__bottom {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-lg);
+}
+
+.impl__bottom .impl__highlight {
+    flex: 1;
+}
+
+.impl__video-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.6rem;
+    background: var(--gradient-primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: var(--fs-body);
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    white-space: nowrap;
+    font-family: inherit;
+}
+
+.impl__video-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(74, 158, 255, 0.3);
+}
+
+/* Video Modal */
+.modal--video {
+    cursor: default;
+}
+
+.modal__video-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 90vw;
+    max-height: 85vh;
+}
+
+.modal__video-wrap video {
+    max-width: 90vw;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
+}
+
+.modal__close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.modal__close:hover {
+    opacity: 1;
+}
+
 /* === Slide 7: Economic Effects === */
 .effects__grid {
     display: grid;
@@ -705,6 +778,59 @@
 .effect-card__cycle-arrow {
     color: var(--accent-green);
     font-weight: 700;
+}
+
+/* === KPI Cards (Slide 7) === */
+.effects__kpi {
+    margin-top: var(--gap-xl);
+}
+
+.effects__kpi-title {
+    font-size: var(--fs-h3);
+    font-weight: 700;
+    margin-bottom: var(--gap-md);
+    color: var(--text-primary);
+}
+
+.effects__kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap-lg);
+}
+
+.kpi-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: var(--gap-lg);
+    text-align: center;
+}
+
+.kpi-card__label {
+    font-size: var(--fs-body);
+    color: var(--text-secondary);
+    margin-bottom: var(--gap-sm);
+    font-weight: 500;
+}
+
+.kpi-card__label small {
+    font-size: var(--fs-small);
+    color: var(--text-muted);
+}
+
+.kpi-card__value {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-variant-numeric: tabular-nums;
+}
+
+.kpi-card__unit {
+    font-size: 0.5em;
+    font-weight: 600;
 }
 
 /* === Slide 8: Roadmap === */

@@ -1,98 +1,202 @@
 /* === Print / PDF Export Styles === */
+/* This file is loaded with media="print", no @media print wrapper needed */
+
 @page {
     size: A4 landscape;
-    margin: 1cm;
+    margin: 0;
 }
 
-/* Override dark theme to light */
-:root {
-    --bg-primary: #ffffff !important;
-    --bg-secondary: #f5f5f5 !important;
-    --bg-card: #ffffff !important;
-    --text-primary: #1a1a1a !important;
-    --text-secondary: #444444 !important;
-    --text-muted: #888888 !important;
-    --border-color: #dddddd !important;
+/* Force colors to print */
+* {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
 }
 
-body {
-    background: white !important;
-    color: #1a1a1a !important;
-}
-
-/* Each slide = one page */
-.slide {
-    min-height: auto !important;
-    height: auto !important;
-    page-break-after: always;
-    page-break-inside: avoid;
-    padding: 1.5cm !important;
-    background: white !important;
-}
-
-.slide:last-child {
-    page-break-after: auto;
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    background: var(--bg-primary) !important;
 }
 
 /* Hide interactive elements */
 #progress-bar,
 #slide-controls,
 #presenter-notes,
-.slide__bg-grid {
+.slide__bg-grid,
+.modal,
+.impl__video-btn {
     display: none !important;
 }
 
-/* Disable all animations */
+/* Reset scroll container */
+#slides-container {
+    overflow: visible !important;
+}
+
+/* Each slide = exactly one A4 landscape page */
+.slide {
+    width: 297mm !important;
+    height: 210mm !important;
+    min-height: 210mm !important;
+    max-height: 210mm !important;
+    padding: 15mm 20mm !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    background: var(--bg-primary) !important;
+}
+
+.slide:last-child {
+    page-break-after: auto !important;
+    break-after: auto !important;
+}
+
+.slide__content {
+    max-width: 100% !important;
+    width: 100% !important;
+    overflow: hidden !important;
+}
+
+/* Force all animated elements to be visible */
 .anim-fade-up,
 .anim-fade-left,
 .anim-fade-right,
 .anim-grow,
 .anim-grow-y,
-.anim-pulse {
+.anim-pulse,
+[class*="anim-"] {
     opacity: 1 !important;
     transform: none !important;
     animation: none !important;
+    transition: none !important;
 }
 
-/* Fix gradient text for print */
-.slide__heading,
+/* Fix gradient text for print - keep colored */
+.slide__heading {
+    -webkit-text-fill-color: var(--accent-blue) !important;
+}
+
 .title__main,
-.closing__thanks,
+.closing__thanks {
+    -webkit-text-fill-color: var(--accent-purple) !important;
+}
+
 .stat-card__value,
+.kpi-card__value {
+    -webkit-text-fill-color: var(--accent-blue) !important;
+}
+
 .team__card--cpo h3 {
-    -webkit-background-clip: unset !important;
-    -webkit-text-fill-color: #1a1a1a !important;
-    background-clip: unset !important;
-    background: none !important;
-    color: #1a1a1a !important;
+    -webkit-text-fill-color: var(--accent-purple) !important;
 }
 
-/* Ensure backgrounds print */
-* {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
+.closing__company {
+    color: var(--text-primary) !important;
 }
 
-/* Card borders visible in print */
+/* Scale down sizes to fit content in one page */
+:root {
+    --fs-hero: 3rem !important;
+    --fs-h1: 2.5rem !important;
+    --fs-h2: 2rem !important;
+    --fs-h3: 1.4rem !important;
+    --fs-body: 1rem !important;
+    --fs-small: 0.85rem !important;
+    --gap-xl: 1.5rem !important;
+    --gap-lg: 1rem !important;
+    --gap-md: 0.6rem !important;
+    --gap-sm: 0.3rem !important;
+}
+
+/* Card styling for print */
 .stat-card,
 .tech__card,
 .effect-card,
 .team__card,
 .roadmap__year-content,
-.impl__track {
-    border: 1px solid #cccccc !important;
+.impl__track,
+.kpi-card {
     box-shadow: none !important;
-    background: #fafafa !important;
 }
 
-/* Charts render as-is (canvas prints natively) */
-canvas {
-    max-width: 100% !important;
-    page-break-inside: avoid;
+/* Slide 2: stat cards */
+.stat-card--large .stat-card__value {
+    font-size: 5rem !important;
+}
+
+/* Slide 3: pipeline fit */
+.pipeline {
+    gap: 0.3rem !important;
+}
+
+.pipeline__stage {
+    padding: 0.8rem 0.5rem !important;
+}
+
+/* Slide 5: impl grid fit */
+.impl__grid {
+    gap: 0.5rem !important;
+}
+
+.impl__steps {
+    padding: 0.5rem !important;
+}
+
+.impl__step {
+    padding: 0.4rem !important;
+}
+
+/* Slide 7: effects grid */
+.effects__grid {
+    gap: 0.8rem !important;
+}
+
+.effect-card {
+    padding: 1rem !important;
+}
+
+.effects__kpi {
+    margin-top: 0.8rem !important;
+}
+
+/* Slide 8: roadmap */
+.roadmap__timeline {
+    padding-left: 90px !important;
+}
+
+.roadmap__year {
+    margin-bottom: 0.8rem !important;
+}
+
+.roadmap__year-content {
+    padding: 0.6rem !important;
+}
+
+/* Slide 9: team */
+.team__connector {
+    height: 20px !important;
+}
+
+.team__card {
+    padding: 0.8rem !important;
+    min-width: 140px !important;
 }
 
 /* SVG diagrams */
-svg {
+svg, canvas {
     max-width: 100% !important;
-    page-break-inside: avoid;
+    page-break-inside: avoid !important;
+}
+
+/* Links - don't show URL */
+a::after {
+    content: none !important;
 }
