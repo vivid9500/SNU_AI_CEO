@@ -89,6 +89,9 @@
 
 .stat-card {
     padding: var(--gap-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .stat-card--highlight {
