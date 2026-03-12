@@ -780,6 +780,17 @@
     font-weight: 700;
 }
 
+.effect-card--link {
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.effect-card--link:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.2);
+}
+
 /* === KPI Cards (Slide 7) === */
 .effects__kpi {
     margin-top: var(--gap-xl);
