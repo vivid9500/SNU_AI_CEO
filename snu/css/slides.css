@@ -138,6 +138,33 @@
     border-color: rgba(245, 158, 11, 0.3);
 }
 
+.stat-card--chart {
+    padding: var(--gap-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-card__chart-img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-sm);
+    object-fit: contain;
+}
+
+.stat-card--focus {
+    border-color: rgba(0, 212, 255, 0.3);
+    background: rgba(0, 212, 255, 0.05);
+    display: flex;
+    align-items: center;
+}
+
+.stat-card--focus .stat-card__text {
+    color: var(--text-primary);
+    font-size: var(--fs-body);
+    font-weight: 500;
+}
+
 /* === Slide 3: Problem Definition === */
 .pipeline {
     display: flex;
