@@ -294,7 +294,7 @@ small {
 }
 
 .modal img {
-    width: 95vw;
+    width: 70vw;
     height: auto;
     object-fit: contain;
     border-radius: var(--border-radius);
