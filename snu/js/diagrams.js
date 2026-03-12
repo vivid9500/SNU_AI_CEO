@@ -138,8 +138,8 @@ const Diagrams = (() => {
             { label: '원피스', sub: '검색어', cx: 300, cy: 60, r: 30, fill: 'rgba(245, 158, 11, 0.3)', stroke: '#f59e0b' },
             { label: '블라우스', sub: '검색어', cx: 300, cy: 150, r: 30, fill: 'rgba(245, 158, 11, 0.3)', stroke: '#f59e0b' },
             { label: '니트', sub: '검색어', cx: 300, cy: 230, r: 30, fill: 'rgba(245, 158, 11, 0.3)', stroke: '#f59e0b' },
-            { label: '상품 X', sub: '도매 C', cx: 520, cy: 80, r: 35, fill: 'rgba(16, 185, 129, 0.3)', stroke: '#10b981' },
-            { label: '상품 Y', sub: '도매 D', cx: 520, cy: 200, r: 35, fill: 'rgba(16, 185, 129, 0.3)', stroke: '#10b981' },
+            { label: '주력상품 X', sub: '도매 C', cx: 520, cy: 80, r: 40, fill: 'rgba(16, 185, 129, 0.3)', stroke: '#10b981' },
+            { label: '주력상품 Y', sub: '도매 D', cx: 520, cy: 200, r: 40, fill: 'rgba(16, 185, 129, 0.3)', stroke: '#10b981' },
             { label: '기획/생산', sub: '', cx: 700, cy: 140, r: 40, fill: 'rgba(239, 68, 68, 0.3)', stroke: '#ef4444' },
         ];
 
