@@ -138,6 +138,14 @@
     border-color: rgba(245, 158, 11, 0.3);
 }
 
+.status__bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap-xl);
+    margin-top: var(--gap-lg);
+    align-items: center;
+}
+
 .stat-card--chart {
     padding: var(--gap-md);
     display: flex;
