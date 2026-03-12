@@ -165,11 +165,24 @@
 .stat-card--center {
     text-align: center;
     align-items: center;
+    background: var(--bg-primary);
+    border-color: transparent;
+    box-shadow: none;
 }
 
 .stat-card--center .stat-card__icon {
     display: flex;
     justify-content: center;
+    margin-bottom: var(--gap-md);
+}
+
+.stat-card--center .stat-card__icon svg {
+    width: 48px;
+    height: 48px;
+}
+
+.stat-card--center .stat-card__text {
+    font-size: var(--fs-h3);
 }
 
 .stat-card--quote {
