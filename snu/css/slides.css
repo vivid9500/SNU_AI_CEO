@@ -180,15 +180,12 @@
 }
 
 .stat-card--quote__text {
-    font-size: var(--fs-body);
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
     font-weight: 500;
     color: var(--text-primary);
     line-height: 1.8;
     text-align: center;
     font-style: italic;
-    border-left: 3px solid var(--accent-cyan);
-    padding-left: var(--gap-lg);
-    text-align: left;
 }
 
 /* === Slide 3: Problem Definition === */
