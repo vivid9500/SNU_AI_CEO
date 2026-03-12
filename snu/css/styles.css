@@ -273,6 +273,34 @@ small {
     color: var(--text-muted);
 }
 
+/* === Image Modal === */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    cursor: zoom-out;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
+}
+
 /* === Scrollbar === */
 ::-webkit-scrollbar {
     width: 6px;

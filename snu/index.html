@@ -84,7 +84,7 @@
                 <!-- Row 2: 차트 + 포커스 메시지 -->
                 <div class="status__row anim-fade-up anim-delay-2">
                     <div class="stat-card stat-card--chart">
-                        <img src="source/chart.png" alt="상관관계 차트" class="stat-card__chart-img">
+                        <img src="source/chart.png" alt="상관관계 차트" class="stat-card__chart-img" onclick="document.getElementById('chart-modal').classList.add('visible')" style="cursor:pointer">
                     </div>
                     <div class="stat-card--quote">
                         <div class="stat-card--quote__text">" 특히 현재는 누적소매수 증가보다<br><strong>등록상품수 증가에 집중</strong>해야 할 때 "</div>
@@ -502,6 +502,11 @@
         </section>
 
     </main>
+
+    <!-- Chart Modal -->
+    <div id="chart-modal" class="modal" onclick="this.classList.remove('visible')">
+        <img src="source/chart.png" alt="상관관계 차트 확대">
+    </div>
 
     <!-- Scripts -->
     <script src="js/navigation.js"></script>
