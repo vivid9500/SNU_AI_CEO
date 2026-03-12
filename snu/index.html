@@ -67,33 +67,44 @@
             <div class="slide__content">
                 <h2 class="slide__heading anim-fade-up">현재 현황</h2>
                 <p class="slide__subheading anim-fade-up anim-delay-1">상품 등록이 매출을 견인하고 있습니다</p>
-                <div class="status__grid">
-                    <div class="stat-card stat-card--highlight stat-card--large anim-fade-left anim-delay-2">
+                <!-- Row 1: 상관계수 + 거래확정금액 견인 -->
+                <div class="status__row anim-fade-up anim-delay-1">
+                    <div class="stat-card stat-card--highlight stat-card--large">
                         <div class="stat-card__label">상관계수</div>
                         <div class="stat-card__value counter" data-target="0.81">0.00</div>
                         <div class="stat-card__desc">상품등록수 &harr; 거래확정금액</div>
                     </div>
-                    <div class="status__stats anim-fade-right anim-delay-2">
-                        <div class="stat-card">
-                            <div class="stat-card__icon">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
-                            </div>
-                            <div class="stat-card__text">상품등록수 증가가<br><strong>거래확정금액 상승</strong>을 견인</div>
+                    <div class="stat-card">
+                        <div class="stat-card__icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
                         </div>
-                        <div class="stat-card stat-card--alert">
-                            <div class="stat-card__icon">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-                            </div>
-                            <div class="stat-card__text">소매 VoC:<br><strong>남도마켓 내 상품 수 부족</strong></div>
-                        </div>
+                        <div class="stat-card__text">상품등록수 증가가<br><strong>거래확정금액 상승</strong>을 견인</div>
                     </div>
                 </div>
-                <div class="status__bottom anim-fade-up anim-delay-3">
+                <!-- Row 2: 차트 + 포커스 메시지 -->
+                <div class="status__row anim-fade-up anim-delay-2">
                     <div class="stat-card stat-card--chart">
                         <img src="source/chart.png" alt="상관관계 차트" class="stat-card__chart-img">
                     </div>
                     <div class="stat-card stat-card--focus">
                         <div class="stat-card__text">특히 현재는 누적소매수 증가보다<br><strong>등록상품수 증가에 집중</strong>해야 할 때.</div>
+                    </div>
+                </div>
+                <!-- Row 3: 소매 VoC 2개 -->
+                <div class="status__row anim-fade-up anim-delay-3">
+                    <div class="stat-card stat-card--alert">
+                        <div class="stat-card__icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        </div>
+                        <div class="stat-card__voc-label">소매 VoC</div>
+                        <div class="stat-card__text"><strong>남도마켓 내 상품 수가 부족</strong>하다</div>
+                    </div>
+                    <div class="stat-card stat-card--alert">
+                        <div class="stat-card__icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        </div>
+                        <div class="stat-card__voc-label">소매 VoC</div>
+                        <div class="stat-card__text">올라와 있는 상품의 <strong>재고가 정확하지 않다.</strong><br>항상 구매하고 나면 상품이 없다고 연락 온다.</div>
                     </div>
                 </div>
             </div>
