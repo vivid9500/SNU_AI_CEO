@@ -180,7 +180,7 @@
 }
 
 .stat-card--quote__text {
-    font-size: var(--fs-h3);
+    font-size: var(--fs-body);
     font-weight: 500;
     color: var(--text-primary);
     line-height: 1.8;
