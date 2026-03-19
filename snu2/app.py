@@ -33,8 +33,10 @@ st.set_page_config(
 
 
 def get_openai_client() -> Optional[OpenAI]:
-    """OpenAI 클라이언트를 초기화합니다."""
+    """OpenAI 클라이언트를 초기화합니다. (.env 또는 Streamlit Secrets 지원)"""
     api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        api_key = st.secrets.get("OPENAI_API_KEY") if hasattr(st, "secrets") else None
     if not api_key:
         return None
     return OpenAI(api_key=api_key)
